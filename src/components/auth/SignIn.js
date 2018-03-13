@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, TextInput, Platform } from "react-native"
+import { View, Text, TextInput, TouchableOpacity, Platform } from "react-native"
 
 export default class SignIn extends Component {
   state = {
@@ -18,6 +18,8 @@ export default class SignIn extends Component {
       password
     })
   }
+
+  signIn = () => {}
 
   render() {
     const { email, password } = this.state
@@ -38,6 +40,9 @@ export default class SignIn extends Component {
           style={styles.input}
           secureTextEntry
         />
+        <TouchableOpacity onPress={this.signIn}>
+          <Text>Sign In</Text>
+        </TouchableOpacity>
       </View>
     )
   }
