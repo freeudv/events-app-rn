@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { View, Text, Image, StyleSheet } from "react-native"
-import { eventList } from "../fixtures"
+import { eventsList } from "../fixtures"
 
 export default class Event extends Component {
   static defaultProps = {
-    event: eventList[0]
+    event: eventsList[0]
   }
   render() {
     const { event } = this.props
@@ -14,7 +14,7 @@ export default class Event extends Component {
         <Text style={[styles.text, styles.header]}>{event.title}</Text>
         <View>
           <Image
-            source={{ uri: "http://lorempixel.com/200/100/technics" }}
+            source={{ uri: "http://lorempixel.com/200/100/technics/" }}
             style={styles.image}
           />
           <Text style={styles.text}>{event.when}</Text>
