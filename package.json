@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "expo": "^25.0.0",
+    "firebase": "^4.11.0",
     "lodash": "^4.17.5",
     "mobx": "^4.0.1",
     "mobx-react": "^5.0.0",

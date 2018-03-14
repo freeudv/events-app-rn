@@ -1,5 +1,6 @@
+import "./src/initFB"
 import React from "react"
-import { StyleSheet, View } from "react-native"
+//import { StyleSheet, View } from "react-native"
 
 //import Root from "./src/components/Root"
 import AppNavigator from "./src/AppNavigator"

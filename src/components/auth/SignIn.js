@@ -1,41 +1,57 @@
+import firebase from "firebase"
 import React, { Component } from "react"
 import { View, Text, TextInput, TouchableOpacity, Platform } from "react-native"
+import { observer, inject } from "mobx-react"
+import userStore from "../../stores/userStore"
 
-export default class SignIn extends Component {
-  state = {
-    email: "",
-    password: ""
+@observer
+class SignIn extends Component {
+  // state = {
+  //   email: "",
+  //   password: ""
+  // }
+
+  // setEmail = email => {
+  //   this.setState({
+  //     email
+  //   })
+  // }
+
+  // setPassword = password => {
+  //   this.setState({
+  //     password
+  //   })
+  // }
+
+  setPassword = password => (userStore.password = password)
+  setEmail = email => (userStore.email = email)
+
+  signIn = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(userStore.email, userStore.password)
+      .then(userEntity => {
+        console.log("---", userEntity)
+        userStore.user = userEntity
+        this.props.navigation.navigate("eventList")
+      })
+    console.log("---", "sign in")
   }
-
-  setEmail = email => {
-    this.setState({
-      email
-    })
-  }
-
-  setPassword = password => {
-    this.setState({
-      password
-    })
-  }
-
-  signIn = () => {}
 
   render() {
-    const { email, password } = this.state
     return (
       <View>
         <Text style={styles.header}>Please Sign In</Text>
         <Text>Email:</Text>
         <TextInput
-          value={email}
+          value={userStore.email}
           onChangeText={this.setEmail}
           style={styles.input}
           keyboardType="email-address"
         />
         <Text>Password:</Text>
         <TextInput
-          value={password}
+          value={userStore.password}
           onChangeText={this.setPassword}
           style={styles.input}
           secureTextEntry
@@ -63,3 +79,5 @@ const styles = {
     })
   }
 }
+
+export default SignIn

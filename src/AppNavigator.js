@@ -5,11 +5,12 @@ import Event from "./screens/events/Event"
 import EventList from "./screens/events/EventList"
 
 const AppNavigator = StackNavigator({
-  eventList: {
-    screen: EventList
-  },
+  // first route by default
   auth: {
     screen: Auth
+  },
+  eventList: {
+    screen: EventList
   },
   event: {
     screen: Event
