@@ -1,5 +1,7 @@
 import "./src/initFB"
 import React from "react"
+import { Provider } from "mobx"
+import stores from "./src/stores"
 //import { StyleSheet, View } from "react-native"
 
 //import Root from "./src/components/Root"
@@ -7,7 +9,11 @@ import AppNavigator from "./src/AppNavigator"
 
 export default class App extends React.Component {
   render() {
-    return <AppNavigator />
+    return (
+      <Provider {...stores}>
+        <AppNavigator />
+      </Provider>
+    )
   }
 }
 
