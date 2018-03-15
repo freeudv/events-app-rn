@@ -35,7 +35,8 @@ class SignIn extends Component {
       .then(userEntity => {
         console.log("---", userEntity)
         user.user = userEntity
-        this.props.navigation.navigate("eventList")
+        //this.props.navigation.navigate("eventList")
+        // remove all logic in userStore
       })
     console.log("---", "sign in")
   }

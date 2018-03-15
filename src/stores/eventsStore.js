@@ -1,8 +1,11 @@
-import { observable, computed, action } from "mobx"
+import { observable, computed, action, useStrict } from "mobx"
 import firebase from "firebase"
 import { entitiesFromFB } from "./utils"
 
-class Events {
+import BasicStore from "./BasicStore"
+//useStrict(true)
+
+class Events extends BasicStore {
   @observable loading = false
   @observable loaded = false
 

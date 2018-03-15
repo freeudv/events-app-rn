@@ -26,10 +26,10 @@ class EventListScreen extends Component {
 
   render() {
     const { events } = this.props
-    if (event.loading) return this.getLoader()
+    if (events.loading) return this.getLoader()
 
     return (
-      <EventList onEventPress={this.handleEventPress} events={event.list} />
+      <EventList onEventPress={this.handleEventPress} events={events.list} />
     )
   }
 }
