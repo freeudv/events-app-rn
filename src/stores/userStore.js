@@ -6,9 +6,10 @@ class User extends BasicStore {
   constructor(...args) {
     super(...args)
 
-    firebase
-      .auth()
-      .onAuthStateChanged(() => this.getStore("navigation").reset("eventList"))
+    firebase.auth().onAuthStateChanged(user => {
+      const routeName = user ? "lists" : "auth"
+      this.getStore("navigation").reset(routeName)
+    })
   }
 
   @observable email = ""

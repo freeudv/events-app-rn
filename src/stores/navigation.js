@@ -1,4 +1,4 @@
-import { observable, action, computed } from "mobx"
+import { observable, action, computed, toJS } from "mobx"
 import { NavigationActions } from "react-navigation"
 import AppNavigator from "../AppNavigator"
 import BasicStore from "./BasicStore"
@@ -18,7 +18,10 @@ class Navigation extends BasicStore {
   get config() {
     return {
       dispatch: this.dispatch,
-      state: this.state
+      state: {
+        ...this.state,
+        routes: toJS(this.state.routes)
+      }
     }
   }
 
